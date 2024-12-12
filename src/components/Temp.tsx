@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import './styles/Temp.css'
 import { ApiResponse, fetchData } from '../utils/api';
-
-
   
 const Temp = () => {
 
@@ -35,7 +33,8 @@ const Temp = () => {
       });
 
     useEffect(() => {
-        const apiUrl = 'http://api.weatherapi.com/v1/current.json?key=58d83b5261004fb49d4103806241112&q=Ranchi&aqi=no'; 
+        const apiKey = import.meta.env.VITE_API_KEY;
+        const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Ranchi&aqi=no`; 
 
     const loadWeatherData = async () => {
       try {
