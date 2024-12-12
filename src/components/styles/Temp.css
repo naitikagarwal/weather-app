@@ -1,0 +1,21 @@
+.temp-comp{
+    /* height: 28vh; */
+    /* width: 15vw; */
+    background-color: aliceblue;
+    margin: 8px;
+    border-radius: 8px;
+    padding-bottom: 8px;
+}
+.wea-icon{
+    height: 100px;
+    width: 100px;
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .temp-comp{
+        width: 95vw;
+        margin: 2.5vw;
+    }
+}
