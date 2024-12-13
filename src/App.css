@@ -2,3 +2,6 @@
 *{
     font-family: "Montserrat", serif;
 }
+.scr{
+    min-height: 100vh;
+}
