@@ -12,7 +12,7 @@ const MainSec = () => {
             </div>
 
         </div>
-        <h3 className="text-center text-4xl mt-4">Mist</h3>
+        <h3 className="text-center text-4xl mt-4 flex justify-center items-center"> <img src="https://cdn.weatherapi.com/weather/64x64/night/113.png" alt="" />Mist</h3>
       </div>
     </>
   )
