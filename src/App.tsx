@@ -5,7 +5,7 @@ const App = () => {
 
 
   return (
-    <div className="h-screen bg-slate-950">
+    <div className="h-screen bg-stone-100">
       <Header/>
       <Home/>
     </div>
