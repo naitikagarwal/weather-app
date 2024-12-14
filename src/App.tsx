@@ -5,6 +5,16 @@ import Sidebar from "./components/Sidebar"
 import { useEffect, useState } from "react"
 import { ApiResponse, fetchData } from "./utils/api"
 const App = () => {
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const[searchInput, setSearchInput] = useState("")
+  const[apiUrl, setApiUrl] = useState(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=kharagpur&aqi=no`)
+  const handleSearch = () => {
+    if (searchInput) {
+      setApiUrl(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${searchInput}&aqi=no`);
+      console.log(searchInput);
+      
+    }
+  };
           const [weatherData, setWeatherData] = useState<{
               temp_c: number | null;
               feelslike_c: number | null;
@@ -17,6 +27,7 @@ const App = () => {
               icon: string | undefined;
               text: string | null;
               region: string | null;
+              name: string | null;
               country: string | null;
             }>({
               temp_c: null,
@@ -30,11 +41,12 @@ const App = () => {
               humidity: null,
               text: null,
               region: null,
+              name: null,
               country: null,
             });
+            
             useEffect(() => {
-                    const apiKey = import.meta.env.VITE_API_KEY;
-                    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=Ranchi&aqi=no`; 
+                    // const apiUrl = ``; 
             
                 const loadWeatherData = async () => {
                   try {
@@ -50,6 +62,7 @@ const App = () => {
                       cloud:data.current.cloud,
                       text:data.current.condition.text,
                       icon:data.current.condition.icon,
+                      name: data.location.name,
                       region: data.location.region,
                       country: data.location.country,
                     });
@@ -59,14 +72,14 @@ const App = () => {
                 };
             
                 loadWeatherData();
-                },[]);
+                },[apiUrl]);
   console.log(weatherData);
   
   
 
   return (
     <div className="scr bg-stone-100">
-      <Header/>
+      <Header name={weatherData.name} searchInput={searchInput} setSearchInput={setSearchInput} handleSearch={handleSearch}/>
       <div className=" flex justify-around">
         <Home
           humidity={weatherData.humidity}
