@@ -13,7 +13,7 @@ const Temp = () => {
         vis_km: number | null;
         uv: number | null;
         wind_dir: string | null;
-        icon: URL | null;
+        icon: string | null;
         text: string | null;
         region: string | null;
         country: string | null;

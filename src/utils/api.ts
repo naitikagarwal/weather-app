@@ -10,7 +10,7 @@ export interface ApiResponse {
       uv:number;
       condition:{
         text:string,
-        icon: URL,
+        icon: string,
       }
       
     };
