@@ -3,11 +3,11 @@ import Home from "./components/Home"
 import "./App.css"
 import Sidebar from "./components/Sidebar"
 import { useEffect, useState } from "react"
-import { ApiResponse, fetchData } from "./utils/api"
+import { ApiResponse, fetchData, fetchSearchData, searchData } from "./utils/api"
 const App = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
   const[searchInput, setSearchInput] = useState("")
-  const[apiUrl, setApiUrl] = useState(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=kharagpur&aqi=no`)
+  const[apiUrl, setApiUrl] = useState(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=ranchi&aqi=no`)
   const handleSearch = () => {
     if (searchInput) {
       setApiUrl(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${searchInput}&aqi=no`);
@@ -51,6 +51,10 @@ const App = () => {
                 const loadWeatherData = async () => {
                   try {
                     const data: ApiResponse = await fetchData(apiUrl);
+                    
+                    const searchData: searchData =await fetchSearchData(`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=ranchi`);
+                    console.log(searchData[0].name);
+                    
                     setWeatherData({
                       temp_c: data.current.temp_c,
                       feelslike_c: data.current.feelslike_c,

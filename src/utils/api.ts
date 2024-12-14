@@ -21,8 +21,30 @@ export interface ApiResponse {
     };
   }
   
+  export interface searchData {[index: number]:{
+    id: number,
+    name: string,
+    region: string,
+    country: string,
+    lat: number,
+    lon: number,
+    // "url": "ranchi-jharkhand-india"
+  }}
 
   export const fetchData = async (apiUrl: string): Promise<ApiResponse> => {
+    try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) {
+        throw new Error(`API error: ${response.statusText}`);
+      }
+      return await response.json();
+    } catch (error) {
+      console.error('Error fetching data:', error);
+      throw error;
+    }
+  };
+  
+  export const fetchSearchData = async (apiUrl: string): Promise<searchData> => {
     try {
       const response = await fetch(apiUrl);
       if (!response.ok) {
