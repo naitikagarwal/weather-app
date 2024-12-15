@@ -27,10 +27,23 @@ export interface ApiResponse {
             maxtemp_c: number;
             mintemp_c: number;
           }
+          astro:{
+            sunrise: string;
+            sunset: string;
+          }
+          hour: Hour[];
           
         }
       }
     }
+  }
+
+  interface Hour {
+    time: string;
+    temp_c: number;
+    humidity: number;
+    windSpeed: number;
+    condition: string; // e.g., 'Sunny', 'Cloudy', etc.
   }
   
   export const fetchData = async (apiUrl: string): Promise<ApiResponse> => {

@@ -1,5 +1,5 @@
 // import Temp from "./Temp"
-import Forecast from './Forecast'
+// import Forecast from './Forecast'
 import MainSec from './MainSec'
 type data = {
   temp_c: number | null;
@@ -7,6 +7,9 @@ type data = {
   humidity: number | null;
   icon: string | undefined;
   text: string | null;
+  sunset: string | null;
+  sunrise: string | null;
+  t_hour: object |null;
 }
 const Home = (props : data) => {
 
@@ -19,12 +22,13 @@ const Home = (props : data) => {
         icon={props.icon}
         text={props.text}
       />
+      <div className="astro flex justify-center gap-10">
+        <div className="flex flex-col items-center rounded-lg border p-3 shadow-md"><img src="./src/assets/sunrise.png" alt="" className='h-7'/>Sunrise
+        <div className="font-semibold">{props.sunrise}</div></div>
+        <div className="flex flex-col items-center border rounded-lg p-3 shadow-md"><img src="./src/assets/sunset.png" alt="" className='h-7'/>Sunset<div className="font-semibold">{props.sunset}</div></div>
+      </div>
       <div className="flex flex-wrap justify-center">
-        <Forecast/>
-        <Forecast/>
-        <Forecast/>
-        <Forecast/>
-        <Forecast/>
+        {/* <Forecast /> */}
       </div>
       
     </div>

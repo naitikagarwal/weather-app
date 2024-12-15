@@ -28,10 +28,13 @@ const App = () => {
               text: string | null;
               region: string | null;
               name: string | null;
+              sunrise: string | null;
+              sunset: string | null;
               country: string | null;
               is_day: number| null;
               maxtemp_c: number|null;
               mintemp_c: number|null;
+              t_hour: object|null
             }>({
               temp_c: null,
               feelslike_c: null,
@@ -48,7 +51,10 @@ const App = () => {
               country: null,
               is_day: null,
               maxtemp_c: null,
-              mintemp_c: null,
+              mintemp_c: null,  
+              sunrise:  null,
+              sunset:  null,
+              t_hour:  null,
             });
             
             useEffect(() => {
@@ -75,7 +81,10 @@ const App = () => {
                       region: data.location.region,
                       country: data.location.country,
                       maxtemp_c: data.forecast.forecastday[0].day.maxtemp_c,
-                      mintemp_c: data.forecast.forecastday[0].day.mintemp_c
+                      mintemp_c: data.forecast.forecastday[0].day.mintemp_c,
+                      sunrise: data.forecast.forecastday[0].astro.sunrise,
+                      sunset: data.forecast.forecastday[0].astro.sunset,
+                      t_hour: data.forecast.forecastday[0].hour
                     });
                   } catch (error) {
                     console.error('Error loading weather data:', error);
@@ -85,6 +94,8 @@ const App = () => {
                 loadWeatherData();
                 },[apiUrl]);
   console.log(weatherData);
+  // console.log(sunset);
+  
   
   
 
@@ -98,6 +109,9 @@ const App = () => {
           wind_kph={weatherData.wind_kph}
           icon={weatherData.icon}
           text={weatherData.text}
+          sunrise={weatherData.sunrise}
+          sunset={weatherData.sunset}
+          t_hour={weatherData.t_hour}
         />
       <Sidebar 
         temp_c={weatherData.temp_c} 

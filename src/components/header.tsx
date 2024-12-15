@@ -59,7 +59,7 @@ console.log(suggestions);
         </div>
         <div className="search-bar text-base">
           <form action="" className='flex gap-1 items-center ' onSubmit={handleFormSubmit}>
-            <input type="text" placeholder='Enter City Name' className='p-1 rounded-lg focus:outline-none' value={searchInput}
+            <input type="text" placeholder='Enter City Name' className='p-1 rounded-lg focus:outline-none ' value={searchInput}
         onChange={handleInputChange} />
         {loading && <p style={{ marginTop: "8px" }}>Loading...</p>}
       {suggestions.length > 0 && (
