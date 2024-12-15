@@ -53,7 +53,7 @@ console.log(suggestions);
   return (
     <>
       <div className="navbar flex flex-row justify-around p-3 bg-stone-300 rounded-bl-2xl shadow-md md:text-2xl text-sm items-center">
-        <div className="Location flex items-center justify-center gap-1">
+        <div className="Location flex items-center justify-center md:gap-1">
         <span className="material-symbols-outlined">location_on</span>
           <h2 className=''>{name}</h2>
         </div>
@@ -79,10 +79,10 @@ console.log(suggestions);
             </li>
           ))}
         </ul>)}
-            <button type='submit'><span className="material-symbols-outlined p-1  ">search</span></button>
+            <button type='submit'><span className="material-symbols-outlined p-1 border rounded-lg bg-black text-white">search</span></button>
           </form>
         </div>
-        {/* <span className="material-symbols-outlined cursor-pointer">menu</span> */}
+        <span className="material-symbols-outlined cursor-pointer menu-bar">menu</span>
       </div>
     </>
   )

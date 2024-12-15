@@ -3,14 +3,14 @@ import Home from "./components/Home"
 import "./App.css"
 import Sidebar from "./components/Sidebar"
 import { useEffect, useState } from "react"
-import { ApiResponse, fetchData, fetchSearchData, searchData } from "./utils/api"
+import { ApiResponse, fetchData} from "./utils/api"
 const App = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
   const[searchInput, setSearchInput] = useState("")
-  const[apiUrl, setApiUrl] = useState(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=ranchi&aqi=no`)
+  const[apiUrl, setApiUrl] = useState(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=kharagpur&aqi=no`)
   const handleSearch = () => {
     if (searchInput) {
-      setApiUrl(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${searchInput}&aqi=no`);
+      setApiUrl(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchInput}&aqi=no`);
       console.log(searchInput);
       
     }
@@ -29,6 +29,9 @@ const App = () => {
               region: string | null;
               name: string | null;
               country: string | null;
+              is_day: number| null;
+              maxtemp_c: number|null;
+              mintemp_c: number|null;
             }>({
               temp_c: null,
               feelslike_c: null,
@@ -43,6 +46,9 @@ const App = () => {
               region: null,
               name: null,
               country: null,
+              is_day: null,
+              maxtemp_c: null,
+              mintemp_c: null,
             });
             
             useEffect(() => {
@@ -52,8 +58,6 @@ const App = () => {
                   try {
                     const data: ApiResponse = await fetchData(apiUrl);
                     
-                    const searchData: searchData =await fetchSearchData(`https://api.weatherapi.com/v1/search.json?key=${apiKey}&q=ranchi`);
-                    console.log(searchData[0].name);
                     
                     setWeatherData({
                       temp_c: data.current.temp_c,
@@ -61,6 +65,7 @@ const App = () => {
                       wind_kph:data.current.wind_kph,
                       humidity:data.current.humidity,
                       wind_dir:data.current.wind_dir,
+                      is_day:data.current.is_day,
                       uv:data.current.uv,
                       vis_km:data.current.vis_km,
                       cloud:data.current.cloud,
@@ -69,6 +74,8 @@ const App = () => {
                       name: data.location.name,
                       region: data.location.region,
                       country: data.location.country,
+                      maxtemp_c: data.forecast.forecastday[0].day.maxtemp_c,
+                      mintemp_c: data.forecast.forecastday[0].day.mintemp_c
                     });
                   } catch (error) {
                     console.error('Error loading weather data:', error);
@@ -94,6 +101,9 @@ const App = () => {
         />
       <Sidebar 
         temp_c={weatherData.temp_c} 
+        maxtemp_c={weatherData.maxtemp_c}
+        mintemp_c={weatherData.mintemp_c}
+        greet={weatherData.is_day}
         cloud={weatherData.cloud}
         country={weatherData.country}
         feelslike_c={weatherData.feelslike_c}
