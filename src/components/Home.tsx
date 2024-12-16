@@ -10,6 +10,7 @@ type data = {
   sunset: string | null;
   sunrise: string | null;
   t_hour: object |null;
+  name: string|null;
 }
 const Home = (props : data) => {
 
@@ -22,6 +23,10 @@ const Home = (props : data) => {
         icon={props.icon}
         text={props.text}
       />
+      <div className="flex items-center justify-center md:hidden mb-2">
+      <span className="material-symbols-outlined ">location_on</span>
+      <h2 className=''>{props.name}</h2>
+      </div>
       <div className="astro flex justify-center gap-10">
         <div className="flex flex-col items-center rounded-lg border p-3 shadow-md"><img src="./src/assets/sunrise.png" alt="" className='h-7'/>Sunrise
         <div className="font-semibold">{props.sunrise}</div></div>

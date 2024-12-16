@@ -116,6 +116,7 @@ const App = () => {
           sunrise={weatherData.sunrise}
           sunset={weatherData.sunset}
           t_hour={weatherData.t_hour}
+          name={weatherData.name}
         />
         {isSidebarVisible? <Sidebar 
         temp_c={weatherData.temp_c} 
