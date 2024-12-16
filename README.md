@@ -43,7 +43,7 @@ npm install
 - Create a .env file in the project root and add your API key
 
 ```env
-VITE_WEATHER_API_KEY=your_openweather_api_key
+VITE_API_KEY= weather_api_key
 ```
 4. Start the development server:
 ```bash
