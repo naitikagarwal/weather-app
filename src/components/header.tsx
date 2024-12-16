@@ -6,10 +6,11 @@ type Location = {
   region: string;
   country: string;
 };
-const Header = ({ searchInput, setSearchInput, handleSearch,name }: {
+const Header = ({ searchInput, setSearchInput, handleSearch,name, toggleSidebar}: {
   name: string|null;
   searchInput: string;
   setSearchInput: React.Dispatch<React.SetStateAction<string>>;
+  toggleSidebar:()=>void;
   handleSearch: () => void;
 }) => {
   const apiKey = import.meta.env.VITE_API_KEY;
@@ -52,8 +53,8 @@ console.log(suggestions);
 
   return (
     <>
-      <div className="navbar flex flex-row justify-around p-3 bg-stone-300 rounded-bl-2xl shadow-md md:text-2xl text-sm items-center">
-        <div className="Location flex items-center justify-center md:gap-1">
+      <div className="navbar flex flex-row justify-around p-3 bg-stone-300 shadow-md md:text-2xl text-sm items-center">
+        <div className="Location  items-center justify-center md:gap-1 hidden md:flex">
         <span className="material-symbols-outlined">location_on</span>
           <h2 className=''>{name}</h2>
         </div>
@@ -82,7 +83,10 @@ console.log(suggestions);
             <button type='submit'><span className="material-symbols-outlined p-1 border rounded-lg bg-black text-white">search</span></button>
           </form>
         </div>
-        <span className="material-symbols-outlined cursor-pointer menu-bar">menu</span>
+        <button onClick={toggleSidebar} className='menu-bar'>
+          <span className="material-symbols-outlined cursor-pointer ">menu</span>
+        </button>
+        
       </div>
     </>
   )

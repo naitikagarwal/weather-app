@@ -13,12 +13,19 @@ type Great = {
     greet: number| null;
     maxtemp_c: number|null;
     mintemp_c: number|null;
+    isVisible: boolean;
 }
-
+//md:mt-5 hidden md:flex-col md:gap-4  md:justify-center md:flex 
 const Sidebar = (props: Great) => {
   return (
     <>
-      <div className="md:mt-5 hidden md:flex-col md:gap-4  md:justify-center md:flex ">
+      <div className=" md:h-auto h-auto md:relative fixed mt-5 md:mt-10  sidebar flex flex-col gap-4 justify-center items-center" style={{
+        background: 'rgb(245, 245, 244 )', 
+        color: '#333', 
+        width: props.isVisible? '100vh':'288px',
+        padding: '10px',
+        
+      }}>
         <h2 className="text-3xl font-bold">Good {props.greet !== 0 ? 'Morning' : 'Evening'}</h2>
         <h3 className="text-2xl font-medium flex items-center"><span className="material-symbols-outlined">device_thermostat</span>{props.temp_c !== null ? `${props.temp_c}°C` : '--'}</h3>
         <p>Feels like : <b>{props.feelslike_c !== null ? `${props.feelslike_c}°C` : '--'}</b></p>

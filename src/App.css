@@ -5,3 +5,26 @@
 .scr{
     min-height: 100vh;
 }
+
+/* Default behavior for smaller screens */
+.menu-bar {
+    display: block;
+  }
+  
+  /* .sidebar {
+    display: none;
+  }
+   */
+  /* Behavior for larger screens */
+  @media (min-width: 768px) {
+    .menu-bar {
+      display: none; 
+    }
+  
+    /* .sidebar { */
+      /* display: block;  */
+      /* position: relative;  */
+      /* left: 0;  */
+    /* } */
+  }
+  

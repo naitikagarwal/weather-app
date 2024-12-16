@@ -2,8 +2,9 @@
     border-bottom: 20px 20px 0px 0px;
     position: sticky;
     top: 0;
+    z-index: 10;
 }
-.menu-bar{
+/* .menu-bar{
     display: none;
 }
 
@@ -11,4 +12,4 @@
     .menu-bar{
         display: block;
     }
-  }
+  } */
