@@ -19,10 +19,10 @@ type Great = {
 const Sidebar = (props: Great) => {
   return (
     <>
-      <div className=" md:h-auto h-auto md:relative fixed mt-5 md:mt-10  sidebar flex flex-col gap-4 justify-center items-center" style={{
+      <div className=" h-auto md:relative absolute mt-5 md:mt-10  sidebar flex flex-col gap-4 justify-center items-center" style={{
         background: 'rgb(245, 245, 244 )', 
         color: '#333', 
-        width: props.isVisible? '100vh':'288px',
+        width: props.isVisible? '100vw':'288px',
         padding: '10px',
         
       }}>
