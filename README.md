@@ -3,7 +3,7 @@
 A responsive and feature-rich weather app built with React, Vite, TypeScript, and Tailwind CSS. This app provides real-time weather updates, forecasts, and additional details such as temperature, humidity, and wind speed for locations around the world.
 
 ## 🖼️ Demo
-Check out the live demo:
+Check out the live demo: [https://dekho-mausam.netlify.app/](https://dekho-mausam.netlify.app/)
 ## ✨ Features
 
 - Real-Time Weather: Displays current weather conditions for any location.
