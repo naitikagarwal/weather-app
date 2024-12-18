@@ -30,7 +30,7 @@ Installation
 1. Clone the repository:
 
 ```bash
-https://github.com/naitikagarwal/weather-app
+git clone https://github.com/naitikagarwal/weather-app
 cd weather-app
 ```
 2. Install dependencies:
@@ -51,3 +51,10 @@ npm run dev
 ```
 5. Visit the app:
 Open your browser and go to http://localhost:5173.
+
+## 🎨 Screenshots
+
+- [HomePage](src/assets/homepage-pc.png)
+- [HomePage-Mobile](src/assets/homepage-mobile.png)
+- [ForecastPage](src/assets/menu-mobile.png)
+

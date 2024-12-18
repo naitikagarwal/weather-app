@@ -7,14 +7,14 @@ import { ApiResponse, fetchData} from "./utils/api"
 const App = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
   const[searchInput, setSearchInput] = useState("")
-  const[apiUrl, setApiUrl] = useState(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=goa&aqi=no`)
+  const[apiUrl, setApiUrl] = useState(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=goa&aqi=no`)
   const [isSidebarVisible, setSidebarVisible] = useState(false);
   const toggleSidebar = () => {
     setSidebarVisible(!isSidebarVisible);
   };
   const handleSearch = () => {
     if (searchInput) {
-      setApiUrl(`http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchInput}&aqi=no`);
+      setApiUrl(`https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${searchInput}&aqi=no`);
       console.log(searchInput);
       
     }

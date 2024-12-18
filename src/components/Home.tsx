@@ -28,9 +28,9 @@ const Home = (props : data) => {
       <h2 className=''>{props.name}</h2>
       </div>
       <div className="astro flex justify-center gap-10">
-        <div className="flex flex-col items-center rounded-lg border p-3 shadow-md"><img src="./src/assets/sunrise.png" alt="" className='h-7'/>Sunrise
+        <div className="flex flex-col items-center rounded-lg border p-3 shadow-md"><img src="https://cdn-icons-png.freepik.com/512/14337/14337308.png?ga=GA1.1.2069686478.1728888784" alt="" className='h-7'/>Sunrise
         <div className="font-semibold">{props.sunrise}</div></div>
-        <div className="flex flex-col items-center border rounded-lg p-3 shadow-md"><img src="./src/assets/sunset.png" alt="" className='h-7'/>Sunset<div className="font-semibold">{props.sunset}</div></div>
+        <div className="flex flex-col items-center border rounded-lg p-3 shadow-md"><img src="https://cdn-icons-png.freepik.com/512/5324/5324890.png?ga=GA1.1.2069686478.1728888784" alt="" className='h-7'/>Sunset<div className="font-semibold">{props.sunset}</div></div>
       </div>
       <div className="flex flex-wrap justify-center">
         {/* <Forecast /> */}
